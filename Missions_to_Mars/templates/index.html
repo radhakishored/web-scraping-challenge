@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  
+    <div class="header" style="background-color: #bf9215">
+      <h1 align=center>Mission to Mars</h1>
+      <p  align=center ><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+	
+	
+    <div class = "row" >
+        <div class = "col-md-12">
+                <h2>Latest Mars News:</h2>
+                <h4>{{ mars_info.news_title }}</h4>
+                <p>{{ mars_info.news_paragraph }}</p>
+                <hr>
+        </div>
+	 </div>
+	<div class="container-fluid" >
+    <div class="row" style=" display: flex;">
+    <div class="col-md-4" style="flex=1;"  >
+      
+      <img src="{{ mars_info.search_image_url }}" alt="Mars" align="left" width=100%>
+	  <hr>
+	  <br>
+    
+    </div>
+	<div class="col-md-4" style="flex=1;">
+      
+      <h2>Current Weather on Mars:</h2></hr>
+                <p>{{ mars_info.Weather}}</p>
+                <hr>            
+                <h2>Mars Facts:</h2>
+                <hr>
+                <p>{{mars_info.mars_facts_pd | safe}}</p>
+                <hr>   
+    
+    </div>
+    <div class="col-md-4" style="flex=1;"  >
+      
+      <h2>Mars Hemispheres:</h2></hr>
+                <div class = "row">
+					<div class = "col-md-12">   
+						{% for i in mars_info.hemisphere_image_url%}
+					<div class = "col-md-6">
+						<img src = "{{ i.img_url }}" width=90%>
+						<h4>{{ i.title }}</h4>
+					</div>
+					{% endfor %}
+					</div>
+				</div> 
+	  
+    </div>
+	</div>
+	</div>
+            <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous">
+            </script>
+</body>
+
+</html>
